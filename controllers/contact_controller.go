@@ -10,6 +10,22 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func HeaderController(ctx *gin.Context) {
+
+	customer := ctx.Request.Header.Get("customer")
+
+	if customer == "varejao" {
+		VarejaoController(ctx)
+	} else if customer == "macapa" {
+
+		MacapaController(ctx)
+	} else {
+		ctx.JSON(400, gin.H{
+			"message": "Bad Request",
+		})
+	}
+}
+
 func VarejaoController(ctx *gin.Context) {
 	data := models.Contacts{}
 	if ctx.ShouldBindJSON(&data) == nil {

@@ -28,21 +28,5 @@ func main() {
 
 	s := server.NewServer()
 
-	// contact := []models.Contacts{}
-	// if err := db1.Select(&contact, `SELECT * FROM contacts`); err != nil {
-	// 	fmt.Println(err)
-	// }
-
-	// fmt.Println("contact...")
-	// fmt.Println(contact)
-
-	// contact2 := []models.Contacts{}
-	// if err := db2.Select(&contact2, `SELECT * FROM contacts`); err != nil {
-	// 	fmt.Println(err)
-	// }
-
-	// fmt.Println("contact2...")
-	// fmt.Println(contact2)
-
 	s.Run()
 }

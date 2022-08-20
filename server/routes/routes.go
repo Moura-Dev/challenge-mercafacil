@@ -13,6 +13,7 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 		{
 			routers.POST("/varejao", controllers.VarejaoController)
 			routers.POST("/macapa", controllers.MacapaController)
+			routers.POST("/header", controllers.HeaderController)
 
 		}
 	}
