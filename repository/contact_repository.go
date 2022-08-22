@@ -10,11 +10,11 @@ import (
 )
 
 // Create contact repository Postgres.
-func CreateContactVarejao(ctx context.Context, nome string, celular string) {
+func CreateContactVarejao(ctx context.Context, contact *models.ContactInfo) {
 	db := database.ConnPostgres
-	celular = utils.MaskCellPhoneVarejo(celular)
+	celular := utils.MaskCellPhoneVarejo(contact.Celular)
 	contactsMaps := []map[string]interface{}{
-		{"Nome": nome, "Celular": celular},
+		{"Nome": contact.Nome, "Celular": celular},
 	}
 
 	_, err := db.NamedExec(`INSERT INTO contacts (nome, celular)
@@ -28,11 +28,11 @@ func CreateContactVarejao(ctx context.Context, nome string, celular string) {
 }
 
 // Create contact repository Mysql.
-func CreateContactMacapa(ctx context.Context, nome string, celular string) {
+func CreateContactMacapa(ctx context.Context, contact *models.ContactInfo) {
 	db := database.ConnMysql
-	celular = utils.MaskCellPhoneMacapa(celular)
+	celular := utils.MaskCellPhoneMacapa(contact.Celular)
 	contactsMaps := []map[string]interface{}{
-		{"Nome": strings.ToUpper(nome), "Celular": celular},
+		{"Nome": strings.ToUpper(contact.Nome), "Celular": celular},
 	}
 
 	_, err := db.NamedExec(`INSERT INTO contacts (nome, celular)
@@ -42,28 +42,4 @@ func CreateContactMacapa(ctx context.Context, nome string, celular string) {
 	}
 
 	db.MustBegin().Commit()
-}
-
-func CreateUser(ctx context.Context, user *models.User) {
-	db := database.ConnMysql
-	_, err := db.NamedExec(`INSERT INTO users (login, password)
-		VALUES (:login, :password)`, user)
-	if err != nil {
-		fmt.Println(err)
-	}
-	db.MustBegin().Commit()
-}
-
-func GetUser(ctx context.Context, login string) (models.User, error) {
-	db := database.ConnMysql
-	user := models.User{}
-	// create a interface for login 
-	err := db.Get(&user, "SELECT * FROM users WHERE login = ?", login)
-	if err != nil {
-		fmt.Println(err)
-		return user, err
-	}
-
-	return user, nil
-
 }

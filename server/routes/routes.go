@@ -10,14 +10,12 @@ import (
 func ConfigRoutes(router *gin.Engine) *gin.Engine {
 	main := router.Group("api/")
 	{
-		main.POST("login", controllers.Login)
+		main.POST("login", controllers.HandlerLogin)
+		main.POST("/user", controllers.HandlerUser)
 		routers := main.Group("/", middlewares.AuthJwt())
 
 		{
-			routers.POST("/varejao", controllers.VarejaoController)
-			routers.POST("/macapa", controllers.MacapaController)
-			routers.POST("/header", controllers.HeaderController)
-			routers.POST("/user", controllers.UserController)
+			routers.POST("/", controllers.HandlerContact)
 
 		}
 

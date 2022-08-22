@@ -24,11 +24,12 @@ func NewJWTService() *jwtService {
 	}
 }
 
-func (s *jwtService) GenerateToken() (string, error) {
+func (s *jwtService) GenerateToken(customer string) (string, error) {
 
 	claim := &Claim{
 		StandardClaims: jwt.StandardClaims{
 			Issuer:    s.issure,
+			Subject:   customer,
 			ExpiresAt: time.Now().Add(time.Hour * 2).Unix(),
 		},
 	}
@@ -53,4 +54,17 @@ func (s *jwtService) ValidateToken(token string) bool {
 	})
 
 	return err == nil
+}
+
+func (s *jwtService) GetCustomerFromToken(t string) (string, error) {
+	tokenString := t
+	claims := jwt.MapClaims{}
+	token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
+		return []byte("secret-key"), nil
+	})
+
+	if token.Valid {
+		return claims["sub"].(string), nil
+	}
+	return "", err
 }
