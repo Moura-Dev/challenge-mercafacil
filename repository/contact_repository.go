@@ -2,6 +2,7 @@ package repository
 
 import (
 	database "base-project-api/db"
+	"base-project-api/models"
 	"base-project-api/utils"
 	"context"
 	"fmt"
@@ -41,4 +42,28 @@ func CreateContactMacapa(ctx context.Context, nome string, celular string) {
 	}
 
 	db.MustBegin().Commit()
+}
+
+func CreateUser(ctx context.Context, user *models.User) {
+	db := database.ConnMysql
+	_, err := db.NamedExec(`INSERT INTO users (login, password)
+		VALUES (:login, :password)`, user)
+	if err != nil {
+		fmt.Println(err)
+	}
+	db.MustBegin().Commit()
+}
+
+func GetUser(ctx context.Context, login string) (models.User, error) {
+	db := database.ConnMysql
+	user := models.User{}
+	// create a interface for login 
+	err := db.Get(&user, "SELECT * FROM users WHERE login = ?", login)
+	if err != nil {
+		fmt.Println(err)
+		return user, err
+	}
+
+	return user, nil
+
 }
