@@ -1,11 +1,13 @@
 package controllers
 
 import (
+	"base-project-api/db"
 	"base-project-api/models"
 	"base-project-api/repository"
 	"base-project-api/services"
 
 	"github.com/gin-gonic/gin"
+	"github.com/jmoiron/sqlx"
 )
 
 func HandlerUser(ctx *gin.Context) {
@@ -19,33 +21,18 @@ func HandlerUser(ctx *gin.Context) {
 	}
 	switch data.Customer {
 	case "varejao":
-		UserVarejao(ctx, &data)
+		CreateUser(ctx, &data, db.ConnPostgres)
 	case "macapa":
-		UserMacapa(ctx, &data)
-	}
-}
-
-func UserVarejao(ctx *gin.Context, data *models.User) {
-	data.Password = services.SHA256ENCODER(data.Password)
-
-	err := repository.CreateUserPostgres(ctx, data)
-	if err != nil {
-		ctx.JSON(400, gin.H{
-			"error": "user already exist",
-		})
-		return
-
+		CreateUser(ctx, &data, db.ConnMysql)
+	default:
 	}
 
-	ctx.JSON(201, gin.H{
-		"message": "User created successfully",
-	})
 }
 
-func UserMacapa(ctx *gin.Context, data *models.User) {
+func CreateUser(ctx *gin.Context, data *models.User, database *sqlx.DB) {
 	data.Password = services.SHA256ENCODER(data.Password)
 
-	err := repository.CreateUserMySQL(ctx, data)
+	err := repository.CreateUser(ctx, data, database)
 	if err != nil {
 		ctx.JSON(400, gin.H{
 			"error": "user already exist",

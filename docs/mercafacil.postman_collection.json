@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "40fcbc13-38f3-4ea7-b381-7a0f952e551a",
+		"name": "mercafacil",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9570837"
+	},
+	"item": [
+		{
+			"name": "Create Contacts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjEyMjQwMTIsImlzcyI6ImNvbnRhY3RzLWFwaSIsInN1YiI6InZhcmVqYW8ifQ.TcQhthEdTYcowxV_VO9e6MiTsKfEeHsmIpBkLF9tAG0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "customer",
+						"value": "varejo",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"contacts\": [\n        {\n            \"name\": \"Marina Rodrigues\",\n            \"cellphone\": \"5541996941919\"\n        },\n        {\n            \"name\": \"Nicolas Rodrigues\",\n            \"cellphone\": \"5541954122723\"\n        },\n        {\n            \"name\": \"Davi Lucca Rocha\",\n            \"cellphone\": \"5541979210400\"\n        },\n        {\n            \"name\": \"Lucas Barros\",\n            \"cellphone\": \"5541944061868\"\n        },\n        {\n            \"name\": \"Lucca Lima\",\n            \"cellphone\": \"5541908727427\"\n        },\n        {\n            \"name\": \"Benjamin Sales\",\n            \"cellphone\": \"5541914106998\"\n        },\n        {\n            \"name\": \"Ana Laura Pereira\",\n            \"cellphone\": \"5541919883324\"\n        },\n        {\n            \"name\": \"Henrique da Conceição\",\n            \"cellphone\": \"5541936250777\"\n        },\n        {\n            \"name\": \"Ana Clara Porto\",\n            \"cellphone\": \"5541988315943\"\n        },\n        {\n            \"name\": \"Ryan Souza\",\n            \"cellphone\": \"5541937901945\"\n        },\n        {\n            \"name\": \"Nina da Cruz\",\n            \"cellphone\": \"5541930283480\"\n        },\n        {\n            \"name\": \"Esther Costa\",\n            \"cellphone\": \"5541976620331\"\n        },\n        {\n            \"name\": \"Felipe Ribeiro\",\n            \"cellphone\": \"5541987077478\"\n        },\n        {\n            \"name\": \"Sra. Amanda Cavalcanti\",\n            \"cellphone\": \"5541905979333\"\n        },\n        {\n            \"name\": \"Bruno Farias\",\n            \"cellphone\": \"5541945698108\"\n        },\n        {\n            \"name\": \"Sra. Mirella Aragão\",\n            \"cellphone\": \"5541932294266\"\n        },\n        {\n            \"name\": \"Nicole Ramos\",\n            \"cellphone\": \"5541972713343\"\n        },\n        {\n            \"name\": \"Augusto Novaes\",\n            \"cellphone\": \"5541934105240\"\n        },\n        {\n            \"name\": \"Vitor Hugo Cunha\",\n            \"cellphone\": \"5541981870128\"\n        },\n        {\n            \"name\": \"Luiz Miguel Monteiro\",\n            \"cellphone\": \"5541994140336\"\n        },\n        {\n            \"name\": \"Alícia Santos\",\n            \"cellphone\": \"5541978861534\"\n        },\n        {\n            \"name\": \"Sr. Marcos Vinicius Duarte\",\n            \"cellphone\": \"5541979767374\"\n        },\n        {\n            \"name\": \"Luiz Gustavo da Cunha\",\n            \"cellphone\": \"5541971153240\"\n        },\n        {\n            \"name\": \"Murilo Moraes\",\n            \"cellphone\": \"5541971140196\"\n        },\n        {\n            \"name\": \"Julia Costela\",\n            \"cellphone\": \"5541938133697\"\n        },\n        {\n            \"name\": \"André Cardoso\",\n            \"cellphone\": \"5541925935033\"\n        },\n        {\n            \"name\": \"Luiza Campos\",\n            \"cellphone\": \"5541942303433\"\n        },\n        {\n            \"name\": \"Nathan da Mata\",\n            \"cellphone\": \"5541971551888\"\n        },\n        {\n            \"name\": \"Nina Sales\",\n            \"cellphone\": \"5541952206418\"\n        },\n        {\n            \"name\": \"Natália Caldeira\",\n            \"cellphone\": \"5541977897055\"\n        },\n        {\n            \"name\": \"Thiago Cardoso\",\n            \"cellphone\": \"5541928464916\"\n        },\n        {\n            \"name\": \"Yago Ferreira\",\n            \"cellphone\": \"5541962241042\"\n        },\n        {\n            \"name\": \"Isabel Moura\",\n            \"cellphone\": \"5541917433481\"\n        },\n        {\n            \"name\": \"Francisco Nogueira\",\n            \"cellphone\": \"5541916159692\"\n        },\n        {\n            \"name\": \"André Monteiro\",\n            \"cellphone\": \"5541987830622\"\n        },\n        {\n            \"name\": \"Ana Julia Barbosa\",\n            \"cellphone\": \"5541965101052\"\n        },\n        {\n            \"name\": \"Emanuella Vieira\",\n            \"cellphone\": \"5541937084511\"\n        },\n        {\n            \"name\": \"Rebeca Correia\",\n            \"cellphone\": \"5541944003092\"\n        },\n        {\n            \"name\": \"Luiza Lopes\",\n            \"cellphone\": \"5541950648087\"\n        },\n        {\n            \"name\": \"Sr. Vitor Hugo Jesus\",\n            \"cellphone\": \"5541966777904\"\n        },\n        {\n            \"name\": \"Bárbara da Rosa\",\n            \"cellphone\": \"5541984242583\"\n        },\n        {\n            \"name\": \"Fernando Melo\",\n            \"cellphone\": \"5541993278935\"\n        },\n        {\n            \"name\": \"Melissa Pereira\",\n            \"cellphone\": \"5541961982198\"\n        },\n        {\n            \"name\": \"Luigi Melo\",\n            \"cellphone\": \"5541937316914\"\n        },\n        {\n            \"name\": \"Davi Lucas Silva\",\n            \"cellphone\": \"5541919590454\"\n        },\n        {\n            \"name\": \"Sr. Marcos Vinicius Alves\",\n            \"cellphone\": \"5541940281564\"\n        },\n        {\n            \"name\": \"Igor da Rocha\",\n            \"cellphone\": \"5541981148730\"\n        },\n        {\n            \"name\": \"Noah Ramos\",\n            \"cellphone\": \"5541943467544\"\n        },\n        {\n            \"name\": \"Sofia Pinto\",\n            \"cellphone\": \"5541942446391\"\n        },\n        {\n            \"name\": \"Joaquim Vieira\",\n            \"cellphone\": \"5541988403129\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\": \"mou\",\n    \"password\": \"123456\",\n    \"customer\": \"varejao\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\": \"mou\",\n    \"password\": \"123456\",\n    \"customer\": \"varejao\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
